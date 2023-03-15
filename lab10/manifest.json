@@ -1,0 +1,28 @@
+{
+   "name": "Program 10",
+    "short_name": "Stock Market",
+    "display": "standalone",
+    "orientation": "portrait",
+    "start_url": "/index.html",
+    "scope": "/",
+    "theme_color": "#8B0000",
+    "id": "/",
+    "description": "Login using this application",
+    "icons": [
+        {
+            "src": "assets/icn.png",
+            "type": "image/png",
+            "sizes": "224x225"
+        },
+        {
+
+            "src": "assets/soccer.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+
+    "background_color": "#8B0000"
+    
+
+}

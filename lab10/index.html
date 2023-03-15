@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stock Display</title>
+        <link rel="manifest" href="manifest.json">
+        <style>
+            table{
+                border-collapse: collapse;
+            }
+            td, th {
+                padding: 1em;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <h2>Stock Market Data Display</h2>
+            <div id="stock"></div>
+        </center>
+        <script>
+            if('serviceWorker' in navigator) {
+				navigator.serviceWorker.register("sw.js")
+				.then((e) => {
+					if(e.active === null){
+						console.log("registered");
+					}
+				});
+			} else {
+				console.log("browser does not support service worker");
+			}
+
+      
+            fetch("data.json")
+            .then((res) => {
+                return res.json();
+            })
+            .then((stock) => {
+                var table = "<table>";
+                table += "<tr><th>Company</th><th>Description</th><th>Initial Price</th><th>Price in 2007</th><th>Symbol</th></tr>";
+
+                for(item of stock) {
+                    table += "<tr><td>"+item.company+"</td><td>"+item.description+"</td><td>"+item.initial_price+"</td><td>"+item.price_2007+"</td><td>"+item.symbol+"</td></tr>";
+                }
+
+                table += "</table>";
+
+                document.getElementById("stock").innerHTML = table;
+            })
+            
+            
+
+        </script>
+    </body>
+</html>
